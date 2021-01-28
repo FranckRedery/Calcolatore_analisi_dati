@@ -80,6 +80,7 @@ float absolute_mean_deviation(vector<float>& v, unsigned x) {
         sum /= v.size();
         return sum;
     }
+    return 0;
 }
 
 float variance(const vector<float>& v) {
@@ -109,7 +110,7 @@ float skewness_index(const vector<float>& v) {
 float gini_index(const vector<float>& v) {
     float total_sum = accumulate(v.begin(), v.end(), 0);
     float cumulative_sum = 0, Qi_sum = 0, Pi_sum = 0;
-    for (int i = 0;i < v.size();i++) {
+    for (unsigned int i = 0;i < v.size();i++) {
         Pi_sum += static_cast<float>((i + 1)) / v.size();
         cumulative_sum += v[i];
         Qi_sum += cumulative_sum / total_sum;
@@ -120,7 +121,7 @@ float gini_index(const vector<float>& v) {
 
 float covariance(const vector <float>& x, const vector <float>& y) {
     float sum_of_XY = 0;
-    for (int i = 0;i < x.size();i++) {
+    for (unsigned int i = 0;i < x.size();i++) {
         sum_of_XY += x[i] * y[i];
     }
     sum_of_XY /= x.size();
